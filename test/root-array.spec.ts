@@ -1,6 +1,6 @@
 import * as assert from 'assert'
 import { removeWhiteSpace } from './util/index'
-import JsonToTS from '../src/index'
+import JsonToTS from '../index'
 
 describe('Root array type', function () {
 
@@ -32,7 +32,7 @@ describe('Root array type', function () {
     const json = [{marius: 'marius'}]
 
     const expectedTypes = [
-      `export interfaceRootObject {
+      `export interface RootObject {
         marius: string;
       }`,
     ].map(removeWhiteSpace)
@@ -51,7 +51,7 @@ describe('Root array type', function () {
     const json = [{marius: 'marius'}, {marius: 'marius'}]
 
     const expectedTypes = [
-      `export interfaceRootObject {
+      `export interface RootObject {
         marius: string;
       }`
     ].map(removeWhiteSpace)
@@ -70,7 +70,7 @@ describe('Root array type', function () {
     const json = [{marius: 'marius'}, {darius: 'darius'}]
 
     const expectedTypes = [
-      `export interfaceRootObject {
+      `export interface RootObject {
         marius?: string;
         darius?: string;
       }`

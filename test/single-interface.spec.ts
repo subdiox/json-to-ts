@@ -1,6 +1,6 @@
 import * as assert from 'assert'
 import { removeWhiteSpace } from './util/index'
-import JsonToTS from '../src/index'
+import JsonToTS from '../index'
 
 describe('Single interface', function () {
 
@@ -8,7 +8,7 @@ describe('Single interface', function () {
     const json = {}
 
     const expected = `
-      export interfaceRootObject {
+      export interface RootObject {
       }
     `
     const actual = JsonToTS(json).pop()
@@ -22,7 +22,7 @@ describe('Single interface', function () {
     }
 
     const expected = `
-      export interfaceRootObject {
+      export interface RootObject {
         _marius: string;
       }
     `
@@ -37,7 +37,7 @@ describe('Single interface', function () {
     }
 
     const expected = `
-export interfaceRootObject {
+export interface RootObject {
   'hello world': number;
 }`
     const actual = JsonToTS(json).pop()
@@ -53,7 +53,7 @@ export interfaceRootObject {
     }
 
     const expected = `
-export interfaceRootObject {
+export interface RootObject {
   'hello world'?: any;
 }`
     const actual = JsonToTS(json).pop()
@@ -71,7 +71,7 @@ export interfaceRootObject {
     }
 
     const expected = `
-      export interfaceRootObject {
+      export interface RootObject {
         str: string;
         num: number;
         bool: boolean;
@@ -90,7 +90,7 @@ export interfaceRootObject {
     }
 
     const expected = `
-      export interfaceRootObject {
+      export interface RootObject {
         c: string;
         a: number;
         b: boolean;
@@ -107,7 +107,7 @@ export interfaceRootObject {
     }
 
     const expected = `
-      export interfaceRootObject {
+      export interface RootObject {
         field?: any;
       }
     `
@@ -116,12 +116,12 @@ export interfaceRootObject {
     assert.strictEqual(a, b)
   })
 
-  it('should name root object export interface"RootObject"', function() {
+  it('should name root object interface "RootObject"', function() {
     const json = {
     }
 
     const expected = `
-      export interfaceRootObject {
+      export interface RootObject {
       }
     `
     const actual = JsonToTS(json).pop()
@@ -135,7 +135,7 @@ export interfaceRootObject {
     }
 
     const expected = `
-      export interfaceRootObject {
+      export interface RootObject {
         arr: any[];
       }
     `

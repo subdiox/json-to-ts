@@ -1,12 +1,12 @@
 import {
   getTypeStructure,
   optimizeTypeStructure
-} from './get-type-structure'
-import { Options } from './model'
+} from './src/get-type-structure'
+import { Options } from './src/model'
 import { shim } from 'es7-shim/es7-shim'
-import { getInterfaceDescriptions, getInterfaceStringFromDescription } from './get-interfaces'
-import { getNames } from './get-names'
-import { isArray, isObject } from './util'
+import { getInterfaceDescriptions, getInterfaceStringFromDescription } from './src/get-interfaces'
+import { getNames } from './src/get-names'
+import { isArray, isObject } from './src/util'
 shim()
 
 export default function JsonToTS(json: any, userOptions?: Options): string[] {

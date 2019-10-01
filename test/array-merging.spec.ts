@@ -1,6 +1,6 @@
 import * as assert from 'assert'
 import { removeWhiteSpace } from './util/index'
-import JsonToTS from '../src/index'
+import JsonToTS from '../index'
 
 describe('Array type merging', function () {
 
@@ -13,10 +13,10 @@ describe('Array type merging', function () {
     }
 
     const expectedTypes = [
-      `export interfaceRootObject {
+      `export interface RootObject {
         cats: Cat[];
       }`,
-      `export interfaceCat {
+      `export interface Cat {
         name: string;
       }`,
     ].map(removeWhiteSpace)
@@ -39,7 +39,7 @@ describe('Array type merging', function () {
     ]
 
     const expectedTypes = [
-      `export interfaceRootObject {
+      `export interface RootObject {
         age?: number;
       }`,
     ].map(removeWhiteSpace)
@@ -63,7 +63,7 @@ describe('Array type merging', function () {
     }
 
     const expectedTypes = [
-      `export interfaceRootObject {
+      `export interface RootObject {
         arr: (null | number | string)[];
       }`,
     ].map(removeWhiteSpace)
@@ -93,7 +93,7 @@ describe('Array type merging', function () {
     ]
 
     const expectedTypes = [
-      `export interfaceRootObject {
+      `export interface RootObject {
         field?: (number | string)[];
       }`,
     ].map(removeWhiteSpace)
@@ -123,10 +123,10 @@ describe('Array type merging', function () {
     ]
 
     const expectedTypes = [
-      `export interfaceRootObject {
+      `export interface RootObject {
         field?: Field;
       }`,
-      `export interfaceField {
+      `export interface Field {
         tag: number | string;
       }`,
     ].map(removeWhiteSpace)
@@ -150,10 +150,10 @@ describe('Array type merging', function () {
     }
 
     const expectedTypes = [
-      `export interfaceRootObject {
+      `export interface RootObject {
         cats: Cat[];
       }`,
-      `export interfaceCat {
+      `export interface Cat {
         name: string;
         age?: number;
       }`,
@@ -179,10 +179,10 @@ describe('Array type merging', function () {
     }
 
     const expectedTypes = [
-      `export interfaceRootObject {
+      `export interface RootObject {
         cats: Cat[];
       }`,
-      `export interfaceCat {
+      `export interface Cat {
         name?: string;
         age?: number;
       }`,
@@ -208,10 +208,10 @@ describe('Array type merging', function () {
     }
 
     const expectedTypes = [
-      `export interfaceRootObject {
+      `export interface RootObject {
         cats: Cat[];
       }`,
-      `export interfaceCat {
+      `export interface Cat {
         age: number | string;
       }`,
     ].map(removeWhiteSpace)
@@ -239,11 +239,11 @@ describe('Array type merging', function () {
     }
 
     const expectedTypes = [
-      `export interfaceRootObject {
+      `export interface RootObject {
         cats: Cat[];
         dads: (number | string)[];
       }`,
-      `export interfaceCat {
+      `export interface Cat {
         age: (number | string)[];
       }`,
     ].map(removeWhiteSpace)
@@ -287,18 +287,18 @@ describe('Array type merging', function () {
     }
 
     const expectedTypes = [
-      `export interfaceRootObject {
+      `export interface RootObject {
         items: Item[];
       }`,
-      `export interfaceItem {
+      `export interface Item {
         billables: Billable[];
       }`,
-      `export interfaceBillable {
+      `export interface Billable {
         quantity: number;
         price: number;
         priceCategory?: PriceCategory;
       }`,
-      `export interfacePriceCategory {
+      `export interface PriceCategory {
         title: string;
         minAge: number;
         maxAge: number;
@@ -341,10 +341,10 @@ describe('Array type merging', function () {
     ]
 
     const expectedTypes = [
-      `export interfaceRootObject {
+      `export interface RootObject {
         nestedElements: NestedElement[];
       }`,
-      `export interfaceNestedElement {
+      `export interface NestedElement {
         commonField: number | string;
         optionalField?: string;
         optionalField3?: string;
@@ -374,7 +374,7 @@ describe('Array type merging', function () {
     ]
 
     const expectedTypes = [
-      `export interfaceRootObject {
+      `export interface RootObject {
         nestedElements: string[];
       }`
     ].map(removeWhiteSpace)
@@ -401,10 +401,10 @@ describe('Array type merging', function () {
     ]
 
     const expectedTypes = [
-      `export interfaceRootObject {
+      `export interface RootObject {
         nestedElements: NestedElement[];
       }`,
-      `export interfaceNestedElement {
+      `export interface NestedElement {
         name: string;
       }`
     ].map(removeWhiteSpace)
@@ -431,7 +431,7 @@ describe('Array type merging', function () {
     ]
 
     const expectedTypes = [
-      `export interfaceRootObject {
+      `export interface RootObject {
         nestedElements: string[][];
       }`
     ].map(removeWhiteSpace)
@@ -458,7 +458,7 @@ describe('Array type merging', function () {
     ]
 
     const expectedTypes = [
-      `export interfaceRootObject {
+      `export interface RootObject {
         marius: number[] | string;
       }`
     ].map(removeWhiteSpace)

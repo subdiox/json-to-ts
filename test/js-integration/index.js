@@ -3,15 +3,15 @@ const assert = require('assert')
 describe("Javascript integration", function () {
 
   it("should work with default require statement", function () {
-    const JsonToTS = require('../../build/src/index')
+    const JsonToTS = require('../../build/index')
 
     const expected = `
-export interfaceRootObject {
+export interface RootObject {
   cats: Cat[];
   favoriteNumber: number;
   favoriteWord: string;
 }
-export interfaceCat {
+export interface Cat {
   name: string;
 }`
 
