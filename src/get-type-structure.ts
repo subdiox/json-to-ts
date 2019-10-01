@@ -1,16 +1,13 @@
 import * as hash from 'hash.js'
 
-import { TypeDescription, KeyMetaData, TypeStructure } from './model'
-import { isHash, parseKeyMetaData, getTypeDescriptionGroup, findTypeById, isArray, isObject, onlyUnique } from './util'
+import { TypeDescription, TypeStructure } from './model'
+import { isHash, getTypeDescriptionGroup, findTypeById, isArray, isObject, onlyUnique } from './util'
 import {
-  TypeGroup,
-  NameEntry,
-  NameStructure,
-  InterfaceDescription,
+  TypeGroup
 } from './model'
 
 
-function createTypeDescription (typeObj: any | string[], isUnion: boolean): TypeDescription {
+function createTypeDescription(typeObj: any | string[], isUnion: boolean): TypeDescription {
   if (isArray(typeObj)) {
     return {
       id: Hash(JSON.stringify([...typeObj, isUnion])),
@@ -25,7 +22,7 @@ function createTypeDescription (typeObj: any | string[], isUnion: boolean): Type
   }
 }
 
-function getIdByType (typeObj: any | string[], types: TypeDescription[], isUnion: boolean = false): string {
+function getIdByType(typeObj: any | string[], types: TypeDescription[], isUnion: boolean = false): string {
 
   let typeDesc = types.find(el => {
     return typeObjectMatchesTypeDesc(typeObj, el, isUnion)
@@ -39,11 +36,11 @@ function getIdByType (typeObj: any | string[], types: TypeDescription[], isUnion
   return typeDesc.id
 }
 
-function Hash (content: string): string {
+function Hash(content: string): string {
   return (hash as any).sha1().update(content).digest('hex')
 }
 
-function typeObjectMatchesTypeDesc (typeObj: any | string[], typeDesc: TypeDescription, isUnion): boolean {
+function typeObjectMatchesTypeDesc(typeObj: any | string[], typeDesc: TypeDescription, isUnion): boolean {
 
   if (isArray(typeObj)) {
     return arraysContainSameElements(typeObj, typeDesc.arrayOfTypes) && typeDesc.isUnion === isUnion
@@ -75,11 +72,7 @@ function objectsHaveSameEntries(obj1: any, obj2: any): boolean {
   return sameLength && sameTypes
 }
 
-function hasSamePrimitiveElements(a: any[], b: any[]) {
-  return a.every( el => b.indexOf(el) !== -1)
-}
-
-function getSimpleTypeName (value: any): string {
+function getSimpleTypeName(value: any): string {
   if (value === null) {
     return 'null'
   } else {
@@ -95,11 +88,6 @@ function getTypeGroup(value: any): TypeGroup {
   } else {
     return TypeGroup.Primitive
   }
-}
-
-function generateTypeName(str: string, index: number = 0): string {
-  const postFix = index === 0 ? '' : index
-  return str.charAt(0).toUpperCase() + str.slice(1) + postFix
 }
 
 function createTypeObject(obj: any, types: TypeDescription[]): any {
@@ -228,14 +216,9 @@ function getInnerArrayType(typesOfArray: string[], types: TypeDescription[]): st
     .filter(typeDesc => getTypeDescriptionGroup(typeDesc) === TypeGroup.Object)
     .length + 1 === typesOfArray.length && containsNull
 
-  const allPrimitiveType = arrayTypesDescriptions.length === 0
-
   const allObjectType = arrayTypesDescriptions
     .filter(typeDesc => getTypeDescriptionGroup(typeDesc) === TypeGroup.Object)
     .length === typesOfArray.length
-
-  const canBeMerged = arrayTypesDescriptions.length > 0 && (allArrayType || allObjectType)
-
 
   if (typesOfArray.length === 0) { // no types in array -> empty union type
     return getIdByType([], types, true)

@@ -8,7 +8,7 @@ describe('Single interface', function () {
     const json = {}
 
     const expected = `
-      interface RootObject {
+      export interfaceRootObject {
       }
     `
     const actual = JsonToTS(json).pop()
@@ -22,7 +22,7 @@ describe('Single interface', function () {
     }
 
     const expected = `
-      interface RootObject {
+      export interfaceRootObject {
         _marius: string;
       }
     `
@@ -37,7 +37,7 @@ describe('Single interface', function () {
     }
 
     const expected = `
-interface RootObject {
+export interfaceRootObject {
   'hello world': number;
 }`
     const actual = JsonToTS(json).pop()
@@ -53,7 +53,7 @@ interface RootObject {
     }
 
     const expected = `
-interface RootObject {
+export interfaceRootObject {
   'hello world'?: any;
 }`
     const actual = JsonToTS(json).pop()
@@ -71,7 +71,7 @@ interface RootObject {
     }
 
     const expected = `
-      interface RootObject {
+      export interfaceRootObject {
         str: string;
         num: number;
         bool: boolean;
@@ -90,7 +90,7 @@ interface RootObject {
     }
 
     const expected = `
-      interface RootObject {
+      export interfaceRootObject {
         c: string;
         a: number;
         b: boolean;
@@ -107,7 +107,7 @@ interface RootObject {
     }
 
     const expected = `
-      interface RootObject {
+      export interfaceRootObject {
         field?: any;
       }
     `
@@ -116,12 +116,12 @@ interface RootObject {
     assert.strictEqual(a, b)
   })
 
-  it('should name root object interface "RootObject"', function() {
+  it('should name root object export interface"RootObject"', function() {
     const json = {
     }
 
     const expected = `
-      interface RootObject {
+      export interfaceRootObject {
       }
     `
     const actual = JsonToTS(json).pop()
@@ -135,7 +135,7 @@ interface RootObject {
     }
 
     const expected = `
-      interface RootObject {
+      export interfaceRootObject {
         arr: any[];
       }
     `

@@ -6,7 +6,6 @@ function isKeyNameValid(keyName: string) {
   return regex.test(keyName)
 }
 
-
 function parseKeyMetaData(key: string): KeyMetaData {
   const isOptional = key.endsWith('--?')
 
@@ -101,7 +100,7 @@ export function getInterfaceStringFromDescription({name, typeMap}: InterfaceDesc
       ''
     )
 
-  let interfaceString =  `interface ${name} {\n`
+  let interfaceString =  `export interface ${name} {\n`
       interfaceString +=  stringTypeMap
       interfaceString += '}'
 

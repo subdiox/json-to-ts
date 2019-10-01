@@ -2,7 +2,7 @@ import {
   getTypeStructure,
   optimizeTypeStructure
 } from './get-type-structure'
-import { Options, TypeDescription } from './model'
+import { Options } from './model'
 import { shim } from 'es7-shim/es7-shim'
 import { getInterfaceDescriptions, getInterfaceStringFromDescription } from './get-interfaces'
 import { getNames } from './get-names'

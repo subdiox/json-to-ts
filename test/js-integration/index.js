@@ -6,12 +6,12 @@ describe("Javascript integration", function () {
     const JsonToTS = require('../../build/src/index')
 
     const expected = `
-interface RootObject {
+export interfaceRootObject {
   cats: Cat[];
   favoriteNumber: number;
   favoriteWord: string;
 }
-interface Cat {
+export interfaceCat {
   name: string;
 }`
 

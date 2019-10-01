@@ -29,12 +29,12 @@ JsonToTS(json).forEach( typeInterface => {
 ### Output:
 
 ```typescript
-interface RootObject {
+export interface RootObject {
   cats: Cat[];
   favoriteNumber: number;
   favoriteWord: string;
 }
-interface Cat {
+export interface Cat {
   name: string;
 }
 ```

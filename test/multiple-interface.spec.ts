@@ -12,10 +12,10 @@ describe('Multiple interfaces', function () {
     }
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         a: A;
       }`,
-      `interface A {
+      `export interfaceA {
         b: number;
       }`,
     ].map(removeWhiteSpace)
@@ -38,11 +38,11 @@ describe('Multiple interfaces', function () {
     }
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         a: A;
         c: A;
       }`,
-      `interface A {
+      `export interfaceA {
         b: number;
       }`,
     ].map(removeWhiteSpace)
@@ -64,10 +64,10 @@ describe('Multiple interfaces', function () {
     }
 
     const expectedTypes = [
-`interface RootObject {
+`export interfaceRootObject {
   'hello world': HelloWorld;
 }`,
-`interface HelloWorld {
+`export interfaceHelloWorld {
   b: number;
 }`,
     ].map(_ => _.trim())
@@ -91,15 +91,15 @@ describe('Multiple interfaces', function () {
     }
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         name: string;
         parent: Parent2;
       }`,
-      `interface Parent {
+      `export interfaceParent {
         name: string;
         parent?: any;
       }`,
-      `interface Parent2 {
+      `export interfaceParent2 {
         name: string;
         parent: Parent;
       }`,
@@ -129,10 +129,10 @@ describe('Multiple interfaces', function () {
     }
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         cats: Cat[][];
       }`,
-      `interface Cat {
+      `export interfaceCat {
         name: string;
       }`,
     ].map(removeWhiteSpace)
@@ -153,10 +153,10 @@ describe('Multiple interfaces', function () {
     }
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         dogs: Dog[];
       }`,
-      `interface Dog {
+      `export interfaceDog {
         name: string;
       }`,
     ].map(removeWhiteSpace)
@@ -176,10 +176,10 @@ describe('Multiple interfaces', function () {
     }
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         cats: Cats;
       }`,
-      `interface Cats {
+      `export interfaceCats {
         popularity: string;
       }`,
     ].map(removeWhiteSpace)
@@ -197,10 +197,10 @@ describe('Multiple interfaces', function () {
     }
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         cat: Cat;
       }`,
-      `interface Cat {
+      `export interfaceCat {
       }`,
     ].map(removeWhiteSpace)
 
@@ -222,20 +222,20 @@ describe('Multiple interfaces', function () {
     }
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         a: A;
         b: B;
       }`,
-      `interface A {
+      `export interfaceA {
         human: Human;
       }`,
-      `interface B {
+      `export interfaceB {
         human: Human2;
       }`,
-      `interface Human {
+      `export interfaceHuman {
         legs: number;
       }`,
-      `interface Human2 {
+      `export interfaceHuman2 {
         arms: number;
       }`,
     ].map(removeWhiteSpace)
@@ -255,10 +255,10 @@ describe('Multiple interfaces', function () {
     }
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         '#@#123#@#': _123;
       }`,
-      `interface _123 {
+      `export interface_123 {
         name: string;
       }`,
     ].map(removeWhiteSpace)
@@ -278,10 +278,10 @@ describe('Multiple interfaces', function () {
     }
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         'hello#@#123#@#': Hello123;
       }`,
-      `interface Hello123 {
+      `export interfaceHello123 {
         name: string;
       }`,
     ].map(removeWhiteSpace)
@@ -302,10 +302,10 @@ describe('Multiple interfaces', function () {
     }
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         '%#hello#@#123#@#': Hello123;
       }`,
-      `interface Hello123 {
+      `export interfaceHello123 {
         name: string;
       }`,
     ].map(removeWhiteSpace)
@@ -325,7 +325,7 @@ describe('Multiple interfaces', function () {
     ]
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         'hello#123'?: string;
       }`,
     ].map(removeWhiteSpace)
@@ -344,7 +344,7 @@ describe('Multiple interfaces', function () {
     }
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         'hello#123'?: any;
       }`
     ].map(removeWhiteSpace)
@@ -364,7 +364,7 @@ describe('Multiple interfaces', function () {
     ]
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         'hello#123'?: any;
       }`
     ].map(removeWhiteSpace)

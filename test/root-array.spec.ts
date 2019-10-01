@@ -32,7 +32,7 @@ describe('Root array type', function () {
     const json = [{marius: 'marius'}]
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         marius: string;
       }`,
     ].map(removeWhiteSpace)
@@ -51,7 +51,7 @@ describe('Root array type', function () {
     const json = [{marius: 'marius'}, {marius: 'marius'}]
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         marius: string;
       }`
     ].map(removeWhiteSpace)
@@ -70,7 +70,7 @@ describe('Root array type', function () {
     const json = [{marius: 'marius'}, {darius: 'darius'}]
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         marius?: string;
         darius?: string;
       }`

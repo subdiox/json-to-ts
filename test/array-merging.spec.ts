@@ -13,10 +13,10 @@ describe('Array type merging', function () {
     }
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         cats: Cat[];
       }`,
-      `interface Cat {
+      `export interfaceCat {
         name: string;
       }`,
     ].map(removeWhiteSpace)
@@ -39,7 +39,7 @@ describe('Array type merging', function () {
     ]
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         age?: number;
       }`,
     ].map(removeWhiteSpace)
@@ -63,7 +63,7 @@ describe('Array type merging', function () {
     }
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         arr: (null | number | string)[];
       }`,
     ].map(removeWhiteSpace)
@@ -93,7 +93,7 @@ describe('Array type merging', function () {
     ]
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         field?: (number | string)[];
       }`,
     ].map(removeWhiteSpace)
@@ -123,10 +123,10 @@ describe('Array type merging', function () {
     ]
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         field?: Field;
       }`,
-      `interface Field {
+      `export interfaceField {
         tag: number | string;
       }`,
     ].map(removeWhiteSpace)
@@ -150,10 +150,10 @@ describe('Array type merging', function () {
     }
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         cats: Cat[];
       }`,
-      `interface Cat {
+      `export interfaceCat {
         name: string;
         age?: number;
       }`,
@@ -179,10 +179,10 @@ describe('Array type merging', function () {
     }
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         cats: Cat[];
       }`,
-      `interface Cat {
+      `export interfaceCat {
         name?: string;
         age?: number;
       }`,
@@ -208,10 +208,10 @@ describe('Array type merging', function () {
     }
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         cats: Cat[];
       }`,
-      `interface Cat {
+      `export interfaceCat {
         age: number | string;
       }`,
     ].map(removeWhiteSpace)
@@ -239,11 +239,11 @@ describe('Array type merging', function () {
     }
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         cats: Cat[];
         dads: (number | string)[];
       }`,
-      `interface Cat {
+      `export interfaceCat {
         age: (number | string)[];
       }`,
     ].map(removeWhiteSpace)
@@ -287,18 +287,18 @@ describe('Array type merging', function () {
     }
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         items: Item[];
       }`,
-      `interface Item {
+      `export interfaceItem {
         billables: Billable[];
       }`,
-      `interface Billable {
+      `export interfaceBillable {
         quantity: number;
         price: number;
         priceCategory?: PriceCategory;
       }`,
-      `interface PriceCategory {
+      `export interfacePriceCategory {
         title: string;
         minAge: number;
         maxAge: number;
@@ -341,10 +341,10 @@ describe('Array type merging', function () {
     ]
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         nestedElements: NestedElement[];
       }`,
-      `interface NestedElement {
+      `export interfaceNestedElement {
         commonField: number | string;
         optionalField?: string;
         optionalField3?: string;
@@ -374,7 +374,7 @@ describe('Array type merging', function () {
     ]
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         nestedElements: string[];
       }`
     ].map(removeWhiteSpace)
@@ -401,10 +401,10 @@ describe('Array type merging', function () {
     ]
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         nestedElements: NestedElement[];
       }`,
-      `interface NestedElement {
+      `export interfaceNestedElement {
         name: string;
       }`
     ].map(removeWhiteSpace)
@@ -431,7 +431,7 @@ describe('Array type merging', function () {
     ]
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         nestedElements: string[][];
       }`
     ].map(removeWhiteSpace)
@@ -458,7 +458,7 @@ describe('Array type merging', function () {
     ]
 
     const expectedTypes = [
-      `interface RootObject {
+      `export interfaceRootObject {
         marius: number[] | string;
       }`
     ].map(removeWhiteSpace)
