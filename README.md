@@ -10,7 +10,7 @@
 ### Code
 
 ```javascript
-const JsonToTS = require('json-to-ts')
+const JsonToTS = require('json2ts')
 
 const json = {
   cats: [
@@ -49,5 +49,5 @@ export interface Cat {
 # Setup
 
 ```sh
-$ npm install --save json-to-ts
+$ npm install --save json2ts
 ```
